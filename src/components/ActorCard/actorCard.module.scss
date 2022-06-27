@@ -1,0 +1,19 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.actorCard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+
+  img {
+    object-fit: contain;
+  }
+
+  p {
+    color: colors.$WHITE;
+  }
+}
