@@ -58,7 +58,7 @@
         text-transform: uppercase;
 
         &:hover,
-        &:active {
+        &.active {
           color: colors.$POINT_COLOR_YELLOW;
         }
       }

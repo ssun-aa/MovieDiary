@@ -1,7 +1,6 @@
 import Slider from 'react-slick';
 import './slick.css';
 import './slick-theme.css';
-import { useEffect, useState } from 'react';
 import { IMovieItem } from 'types/movie.d';
 import styles from './movieSlider.module.scss';
 
