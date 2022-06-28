@@ -60,6 +60,11 @@ const IMAGE_URL = process.env.REACT_APP_MOVIE_IMAGE_URL;
 
 function Main() {
   const [actorList, setActorList] = useState<IActorItem[]>([]);
+  const [popularMovieList, setPopularMovieList] = useState<IMovieItem[]>([]);
+  const [upComingMovieList, setUpComingMovieList] = useState<IMovieItem[]>([]);
+  const [inTheaterMovieList, setInTheaterMovieList] = useState<IMovieItem[]>(
+    []
+  );
   const [genreMovieList, setGenreMovieList] = useState<IMovieItem[]>([]);
   const [clickedGenre, setClickedGenre] = useState('');
 
@@ -71,6 +76,21 @@ function Main() {
   const genreMovieApi = async (genre: number) => {
     const res = await movieInGenreAPI(genre);
     if (res) setGenreMovieList(res);
+  };
+
+  const popularMovieApi = async () => {
+    const res = await moviePopularAPI();
+    if (res) setPopularMovieList(res);
+  };
+
+  const upComingMovieApi = async () => {
+    const res = await movieUpcomingAPI();
+    if (res) setUpComingMovieList(res);
+  };
+
+  const inTheatherMovieApi = async () => {
+    const res = await movieInTheaterAPI();
+    if (res) setInTheaterMovieList(res);
   };
 
   const handleGenreClick = (e: { currentTarget: { value: string } }) => {
@@ -88,6 +108,9 @@ function Main() {
   useEffect(() => {
     actorApi();
     genreMovieApi(28);
+    popularMovieApi();
+    upComingMovieApi();
+    inTheatherMovieApi();
   }, []);
 
   return (
@@ -96,7 +119,7 @@ function Main() {
       <div className={styles.sliderBox}>
         <h2 className={styles.title}>POPULAR</h2>
         <MovieSlider
-          api={moviePopularAPI}
+          movieList={popularMovieList}
           size="large"
           slidesToShow={4}
           rows={1}
@@ -107,7 +130,7 @@ function Main() {
           <div className={styles.sliderBox}>
             <h2 className={styles.title}>UP COMING</h2>
             <MovieSlider
-              api={movieUpcomingAPI}
+              movieList={upComingMovieList}
               size="small"
               slidesToShow={4}
               rows={1}
@@ -116,7 +139,7 @@ function Main() {
           <div className={styles.sliderBox}>
             <h2 className={styles.title}>IN THEATER</h2>
             <MovieSlider
-              api={movieInTheaterAPI}
+              movieList={inTheaterMovieList}
               size="small"
               slidesToShow={4}
               rows={1}

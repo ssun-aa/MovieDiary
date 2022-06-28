@@ -6,7 +6,7 @@ import { IMovieItem } from 'types/movie.d';
 import styles from './movieSlider.module.scss';
 
 interface Props {
-  api: () => Promise<IMovieItem[] | void>;
+  movieList: Array<IMovieItem>;
   slidesToShow: number;
   size: string;
   rows: number;
@@ -14,18 +14,7 @@ interface Props {
 
 const IMAGE_URL = process.env.REACT_APP_MOVIE_IMAGE_URL;
 
-function MovieSlider({ api, size, slidesToShow, rows }: Props) {
-  const [upComingMovieList, setUpComingMovieList] = useState<IMovieItem[]>([]);
-
-  const movieupComing = async () => {
-    const res = await api();
-    if (res) setUpComingMovieList(res);
-  };
-
-  useEffect(() => {
-    movieupComing();
-  });
-
+function MovieSlider({ movieList, size, slidesToShow, rows }: Props) {
   const settings = {
     dots: true,
     infinite: true,
@@ -37,7 +26,7 @@ function MovieSlider({ api, size, slidesToShow, rows }: Props) {
 
   return (
     <Slider {...settings}>
-      {upComingMovieList.map((movie) => (
+      {movieList.map((movie) => (
         <div key={movie.id}>
           <img
             className={styles.poster}
