@@ -1,0 +1,35 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/constants/levels';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/mixins/position';
+
+.wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: levels.$GNB;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  padding: 20px 5%;
+  background-color: colors.$NAV_BACKGROUND_COLOR;
+
+  .navBar {
+    display: flex;
+    justify-content: space-between;
+    color: colors.$TEXT_COLOR;
+
+    .navRight {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .icon {
+        margin-right: 10px;
+        fill: colors.$TEXT_COLOR;
+      }
+    }
+  }
+}
