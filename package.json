@@ -1,5 +1,5 @@
 {
-  "name": "humanscape-fe-5b",
+  "name": "movie-diary",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -34,7 +34,9 @@
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
     "recoil": "^0.7.3-alpha.2",
+    "slick-carousel": "^1.8.1",
     "storejs": "^2.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -47,6 +49,7 @@
     "@types/react": "^18.0.9",
     "@types/react-beautiful-dnd": "^13.1.2",
     "@types/react-dom": "^18.0.4",
+    "@types/react-slick": "^0.23.9",
     "@typescript-eslint/eslint-plugin": "^5.23.0",
     "@typescript-eslint/parser": "^5.23.0",
     "eslint": "^8.15.0",
